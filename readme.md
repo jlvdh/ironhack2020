@@ -9,3 +9,6 @@
 ## industry news
 * https://news.ycombinator.com/
 * https://hackernoon.com/
+
+## css
+* https://css-tricks.com/centering-css-complete-guide/
