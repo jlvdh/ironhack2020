@@ -1,11 +1,11 @@
 
-regex tool
-https://regexr.com/
+##regex tool
+*https://regexr.com/
 
-styleguides
-https://standardjs.com/rules.html
-https://github.com/airbnb/javascript
+##styleguides
+*https://standardjs.com/rules.html
+*https://github.com/airbnb/javascript
 
-industry news
-https://news.ycombinator.com/
-https://hackernoon.com/
+##industry news
+*https://news.ycombinator.com/
+*https://hackernoon.com/
