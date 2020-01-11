@@ -1,0 +1,23 @@
+body {
+    background-color: blue !important;
+}
+
+a {
+    color: blue;
+}
+
+h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#main-header {
+    background-color: turquoise;
+}
+
+.green-paragraph {
+    background-color: teal;
+}
+
+.blue-text {
+    color: blue;
+}
