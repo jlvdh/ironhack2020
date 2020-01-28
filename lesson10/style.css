@@ -1,0 +1,12 @@
+
+#cat-container {
+    border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cat-card {
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+}
