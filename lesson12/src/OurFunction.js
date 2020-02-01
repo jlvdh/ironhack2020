@@ -1,0 +1,1 @@
+const catName = arr => arr.map(catName =>  `mr. ${catName}`)
