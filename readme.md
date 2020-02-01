@@ -12,3 +12,8 @@
 
 ## css
 * https://css-tricks.com/centering-css-complete-guide/
+
+## DOM manipulation - event bubbling
+
+* https://www.kirupa.com/html5/handling_events_for_many_elements.htm
+* https://www.sitepoint.com/event-bubbling-javascript/
