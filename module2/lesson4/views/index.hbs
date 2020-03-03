@@ -1,0 +1,12 @@
+    {{{someHtml}}}
+    this is our website about {{name}} his hobby is {{hobby}} and he eats {{food}}
+    <img src="{{img}}">
+    {{#unless hungry}}
+    <button>play</button>
+    {{/unless}}
+
+    {{#each favoriteToys}}
+        {{> hobby}}
+    {{/each}}
+
+    {{> footer}}
