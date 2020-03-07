@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>our form</title>
+</head>
+<body>
+    <form action='/search' method='POST'>
+        <input type="text" name="search">
+        <button type="submit">search for cats</button>
+    </form>
+    <div>
+        you searched for {{search}}
+    </div>
+</body>
+</html>
