@@ -1,0 +1,13 @@
+<form action="/cat/edit/{{_id}}" method="post">
+    <label for="name">name</label>
+    <input type="text" value="{{name}}" name="name" id="name">
+    <label for="age">age</label>
+    <input type="text" value="{{age}}" name="age" id="age">
+    <label for="bio">bio</label>
+    <input type="text" value="{{bio}}" name="bio" id="bio">
+    <label for="dateOfBirth">Date of birth</label>
+    <input type="date" value="{{dateOfBirth}}" name="dateOfBirth" id="dateOfBirth">
+    <button type="submit">EDIT CAT</button>
+    <a href="/cat/delete/{{_id}}">DELETE CAT</a>
+
+</form>

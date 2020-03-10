@@ -1,0 +1,20 @@
+<h1>{{othervalue}}</h1>
+
+{{#each cats}}
+
+<div>
+    name: {{name}}
+</div>
+<div>
+    age: {{age}}
+</div>
+<div>
+    bio: {{bio}}
+</div>
+<div>
+    Date of birth: {{dateOfBirth}}
+</div>
+<div><a href="/cat/edit/{{_id}}">edit</a></div>
+<br>
+
+{{/each}}
