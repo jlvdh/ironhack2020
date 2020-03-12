@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 
 const Cat = require('../models/cat')
+const Food = require('../models/food')
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -64,6 +65,46 @@ router.get('/delete/:id', (req, res, next) => {
     Cat.deleteOne({_id: req.params.id})
         .then(() => {
             res.redirect('/cat')
+        })
+})
+
+router.get('/diet/:id', (req, res, next) => {
+
+    const foods = Food.find()
+    const cat = Cat.findById(req.params.id).populate('foods')
+
+    Promise.all([cat, foods])
+        .then(result => {
+            res.render('cats/diet', {cat: result[0], foods: result[1]})
+        })
+        .catch(e => {
+            next(e)
+        })
+})
+
+router.post('/diet/:id', (req, res, next) => {
+    Cat.updateOne({_id: req.params.id}, {$push: {foods: req.body.foodId}})
+        .then( () => {
+            res.redirect(`/cat/diet/${req.params.id}`)
+        })
+        .catch(e => {
+            next(e)
+        })
+})
+
+router.post('/message/:id', (req, res, next) => {
+    Cat.findById(req.params.id)
+        .then(cat => {
+            cat.messages.push({
+                body: req.body.body
+            })
+            return cat.save()
+        })
+        .then( () => {
+            res.redirect(`/cat/diet/${req.params.id}`)
+        })
+        .catch(e => {
+            next(e)
         })
 })
 
