@@ -9,4 +9,4 @@ const checkRoles = (role) => {
   }
 }
 
-module.exports = {otherInfo, checkRoles}
+module.exports = checkRoles
