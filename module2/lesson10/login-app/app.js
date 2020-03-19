@@ -71,5 +71,8 @@ app.use('/', index);
 const authRouter = require('./routes/auth')
 app.use('/auth', authRouter)
 
+const pizzaRouter = require('./routes/pizza')
+app.use('/pizza', pizzaRouter)
+
 
 module.exports = app;
