@@ -48,6 +48,7 @@ checkRoles('ADMIN'),
     res.send('welcome to the admin page')
 })
 
+
 router.get('/otherpage',
 checkRoles('GUEST'),
 (req, res, next) => {

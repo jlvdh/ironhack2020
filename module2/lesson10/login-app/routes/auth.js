@@ -67,6 +67,24 @@ router.post('/login', passport.authenticate('local', {
 //     })
 // })
 
+router.get(
+  "/google",
+  passport.authenticate("google", {
+    scope: [
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.email"
+    ]
+  })
+)
+
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: '/pizza/otherpage',
+    failureRedirect: "/auth/login"
+  })
+)
+
 router.get('/logout', (req, res, next) => {
   req.session.destroy(() =>{
     res.redirect('/auth/login')
