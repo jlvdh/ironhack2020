@@ -1,0 +1,20 @@
+
+.cat-name {
+    color: fuchsia;
+    background-color:aqua
+}
+
+.cat-age {
+    color: blue;
+    border: 4px purple solid;
+}
+
+.cat-age:hover {
+color: transparent;
+}
+
+.cat-cage {
+    width: 400px;
+    height: auto;
+    border-radius: 5%;
+}
