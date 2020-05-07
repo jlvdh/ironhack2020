@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import foods from './foods.json'
-import FoodBox from './components/Foodbox/FoodBox'
+import foods from './foods.json';
+import FoodBox from './components/Foodbox/FoodBox';
+import SearchBar from './components/SearchBar/SearchBar';
+import TodaysFood from "./components/TodaysFood/TodaysFood";
 
 class App extends Component {
   state = {
     foods,
     results: foods,
-    formIsShowed:false
+    formIsShowed:false,
+    todaysFood: []
   }
 
   handleInput = (e) => {
@@ -44,18 +47,24 @@ class App extends Component {
       searchText: value
     })
   }
+
+  addFood = (food) => {
+    const todaysFood = [...this.state.todaysFood, food]
+    
+    this.setState({
+      todaysFood: todaysFood 
+    })
+  }
+  
   
   render() {
     return (
       <div className="App">
-        <div>
-        <input type="text" 
-               className="input search-bar" 
-               name="searchText" 
-               placeholder="Search" 
-               value={this.state.searchText} 
-               onChange={(e) => this.handleSearchInput(e)} />
-        </div>
+        <SearchBar
+          searchText={this.state.searchText}
+          handleSearchInput={this.handleSearchInput}
+        />
+
         {this.state.formIsShowed ? 
         <form className="food-form" onSubmit={(e)=> this.handleSubmit(e)}>
           <label name="name">Name</label>
@@ -93,8 +102,12 @@ class App extends Component {
            calories={element.calories}
            image={element.image}
            quantity={element.quantity}
+           addFood={this.addFood}
          />
         )}
+        <TodaysFood 
+          foodArray={this.state.todaysFood}
+        />
        
       </div>
     );

@@ -1,6 +1,13 @@
 import React from 'react'
 
 export default function FoodBox(props) {
+
+    const food = {
+        name: props.name,
+        calories: props.calories,
+        quantity: props.quantity,
+        image: props.image,
+    }
     return (
         <div>
             <div className="box">
@@ -25,11 +32,11 @@ export default function FoodBox(props) {
                                     className="input"
                                     type="number" 
                                     value={props.quantity}
-                                    onChange={(e)=> this.handleInput(e)}
+                                    onChange={(e)=> props.quantityUpdate(e)}
                                 />
                             </div>
                             <div className="control">
-                                <button className="button is-info">
+                                <button className="button is-info" onClick={() => props.addFood(food)}>
                                     +
                                 </button>
                             </div>
@@ -40,3 +47,4 @@ export default function FoodBox(props) {
         </div>
     )
 }
+// selectedFoods
