@@ -2,11 +2,11 @@ import axios from 'axios'
 
 class AuthService {
   constructor() {
-    let service = axios.create({
+    this.service = axios.create({
       baseURL: 'http://localhost:4000',
       withCredentials: true
     })
-    this.service = service
+    //this.service = service
   }
 
   signup = (username, password) => {
@@ -16,6 +16,11 @@ class AuthService {
 
   login = (username, password) => {
     return this.service.post('/auth/login', {username, password})
+    .then(response => response.data)
+  }
+
+  isAuthenticated = () => {
+    return this.service.get('/auth/isLoggedIn')
     .then(response => response.data)
   }
 

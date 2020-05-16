@@ -61,4 +61,28 @@ router.get("/logout", (req, res) => {
   res.status(200).json({message: "User logged out succesfully"})
 });
 
+router.get("/isLoggedIn", (req, res) => {
+  // req.isAuthenticated() ? res.status(200).json(req.user) : res.status(403).json({message: "please authenticate"})
+  if(req.isAuthenticated()) {
+    res.status(200).json(req.user)
+    return
+  }
+  res.status(403).json({message: 'please authenticate'})
+})
+
+// you can also create your own middleware or use ensureLogin :-)
+router.post("/editprofile", (req, res) => {
+  if (!req.isAuthenticated()) {
+    res.status(403).json({message: 'need to be authenticated'})
+  }
+  const { job } = req.body
+  User.updateOne({_id: req.user.id}, {job: job})
+    .then(status => {
+      res.status(200).json(status)
+    })
+    .catch(e => {
+      res.status(500).json({message: 'an error has occurred'})
+    })
+})
+
 module.exports = router;
