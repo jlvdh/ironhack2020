@@ -2,10 +2,28 @@ const express = require("express");
 const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
+const multer = require('multer')
+const upload = multer({
+  dest: 'public/uploads/'
+})
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
+
+router.post('/profileimage', upload.single('profileimage'), (req, res, next) => {
+  if(!req.user) {
+    res.status(400).json({message: 'authentication required'})
+  }
+
+  User.updateOne({_id: req.user.id}, {profileimage: req.file.filename})
+    .then(operation => {
+      res.status(200).json(operation)
+    })
+    .catch(e => {
+      res.status(500).json({error: e})
+    })
+})
 
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {

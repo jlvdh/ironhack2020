@@ -14,6 +14,11 @@ class UserService {
     .then(response => response.data)
   }
 
+  addProfileImage = image => {
+    return this.service.post('/auth/profileimage', image)
+      .then(response => response.data)
+  }
+
 }
 
 export default UserService

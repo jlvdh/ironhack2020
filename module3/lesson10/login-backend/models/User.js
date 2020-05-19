@@ -7,7 +7,8 @@ const userSchema = new Schema({
   job: {
     type: String,
     enum: ["Programmer", "UX Designer", "Database Guru"]
-  }
+  },
+  profileimage: String
 }, {
   timestamps: {
     createdAt: 'created_at',

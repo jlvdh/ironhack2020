@@ -7,6 +7,7 @@ import Signup from './components/Signup/Signup.jsx'
 import Profile from './components/Profile/Profile.jsx'
 import AuthService from './services/auth-service.js'
 import Edit from './components/Edit/Edit';
+import AddProfileImage from './components/AddProfileImage/AddProfileImage';
 
 export default class App extends Component {
 
@@ -52,10 +53,14 @@ export default class App extends Component {
           <h1>welcome {this.state.user.username}</h1>
           <Link to="/profile">see Profile</Link>
           <Link to="/edit">Edit Profile</Link>
+          <Link to="/addprofileimage">Add Profile Image</Link>
 
           <Switch>
-              <Route path='/profile' render={() => <Profile setUser={this.setUser} />} />
+              <Route path='/profile' render={() => <Profile user={this.state.user} setUser={this.setUser} />} />
               <Route path='/edit' render={() => <Edit setUser={this.setUser} />} />
+              {/* <Route path='/addprofileimage' render={(props) => <AddProfileImage {...props} setUser={this.setUser} /> } /> */}
+              <Route path='/addprofileimage' component={AddProfileImage} />
+
           </Switch>
         </>
       )
