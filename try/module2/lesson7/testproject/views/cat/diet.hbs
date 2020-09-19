@@ -1,0 +1,24 @@
+<h1>add to {{cat.name}}'s diet</h1>
+
+{{#each cat.food}}
+    <li>{{name}}</li>
+{{/each}}
+
+<form action="/cat/diet/{{cat.id}}" method="post">
+
+    <select name="foodId">
+        {{#each foods}}
+            <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <button type="submit">add food</button>
+</form>
+
+{{#each cat.messages}}
+<div>{{body}} <a href="/cat/deletemessage/{{../cat._id}}/{{_id}}">X</a></div>
+{{/each}}
+<form action="/cat/message/{{cat.id}}" method="post">
+<input type="text" name="message" id="">
+<button type="submit">send</button>
+
+</form>

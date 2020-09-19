@@ -1,0 +1,16 @@
+    hello {{name}}
+    <img src="{{img}}">
+
+    {{#each hobbies}}
+        {{> hobby}}
+    {{/each}}
+
+    <form action="/form" method="POST">
+  <label for="">City</label>
+  <input type="text" name="city" id="">
+  <label for="">Start-Date</label>
+  <input type="date" name="start-date" id="">
+  <label for="">End-Date</label>
+  <input type="date" name="end-date" id="">
+  <button type="submit">SEARCH</button>
+</form>

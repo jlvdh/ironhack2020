@@ -4,4 +4,3 @@ describe("Our user should be able to login", function() {
         expect(catName(catNames)[0]).toEqual('mr. Wiggles')
     })
 })
-

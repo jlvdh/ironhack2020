@@ -1,0 +1,12 @@
+edit a cat
+<form action='/cat/edit/{{id}}' method="POST">
+    <label for="name">Name</label>
+    <input type="text" value="{{name}}" name="name" id="name">
+    <label for="age">age</label>
+    <input type="text" value="{{age}}" name="age" id="age">
+    <label for="bio">bio</label>
+    <input type="text" value="{{bio}}" name="bio" id="bio">
+    <label for="image">image</label>
+    <input type="text" value="{{image}}" name="image" id="image">
+    <button type="submit">CREATE</button>
+</form>
